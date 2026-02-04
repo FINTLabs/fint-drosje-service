@@ -12,7 +12,7 @@ jobs:
       DOCKER_BUILDKIT: 1
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Limit branch name
         id: branch
@@ -58,7 +58,7 @@ jobs:
             deploy-every-branch: true
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Get environment
         id: environment

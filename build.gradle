@@ -46,12 +46,17 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
     implementation 'io.netty:netty-resolver-dns-native-macos:4.1.101.Final:osx-aarch_64'
 
-    implementation 'org.springframework.kafka:spring-kafka'
+    implementation("at.yawk.lz4:lz4-java:1.10.4")
+    implementation("org.springframework.kafka:spring-kafka") {
+        exclude group: 'org.lz4', module: 'lz4-java'
+    }
 
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+
+    implementation("tools.jackson.core:jackson-core:3.1.0")
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
